@@ -73,7 +73,7 @@ export default () => {
                 <S.PhotoArea>
                     <S.PhotoScroll horizontal={true}>
                         <S.PhotoAddButton onPress={handleAddPhoto}>
-                            <Icon name="camera" size={24} color="#000" />
+                            <Icon name="camera" size={24} color={context.theme === 'light' ? '#000' : '#fff'} />
                         </S.PhotoAddButton>
                         {photoList.map((item, index)=>(
                             <S.PhotoItem key={index}>
@@ -88,7 +88,7 @@ export default () => {
 
                 {loading &&
                     <S.LoadingArea>
-                        <S.LoadingIcon size="large" color="#000"/>
+                        <S.LoadingIcon size="large" color={context.theme === 'light' ? '#000' : '#fff'}/>
                         <S.LoadText>Enviando Foto, Aguarde...</S.LoadText>
                     </S.LoadingArea>
                 }

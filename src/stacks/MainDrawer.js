@@ -6,6 +6,7 @@ import DrawerCustom from '../components/DrawerCustom';
 import Wall from '../screens/Wall';
 import Document from '../screens/Document';
 import FoundAndLost from '../screens/FoundAndLost';
+import FoundAndLostAdd from '../screens/FoundAndLostAdd';
 import Profile from '../screens/Profile';
 import Reservation from '../screens/Reservation';
 import ReservationAdd from '../screens/ReservationAdd';
@@ -30,14 +31,13 @@ export default () => {
                     shadowOpacity: 0,
                     elevation: 0
                 },
-                headerTitleStyle: {
-                    color: context.theme === 'light' ? '#121212' : '#F5F9FA',
-                }
+                headerTintColor: context.theme === 'light' ? '#121212' : '#F5F9FA'
             }}
         >
             <Drawer.Screen name="Wall" component={Wall} options={{headerShown:true, title: 'Mural de Avisos'}} />
             <Drawer.Screen name="Document" component={Document} options={{headerShown:true, title: 'Documentos'}} />
             <Drawer.Screen name="FoundAndLost" component={FoundAndLost} options={{headerShown:true, title: 'Achados e Perdidos'}} />
+            <Drawer.Screen name="FoundAndLostAdd" component={FoundAndLostAdd} options={{headerShown:true, title: 'Novo Registro'}} />
             <Drawer.Screen name="Profile" component={Profile} options={{headerShown:true, title: 'Meus Dados'}} />
             <Drawer.Screen name="Reservation" component={Reservation} options={{headerShown:true, title: 'Reservas Disponíveis'}} />
             <Drawer.Screen name="ReservationAdd" component={ReservationAdd} options={{headerShown:true, title: 'Nova Reserva'}} />

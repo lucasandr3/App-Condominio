@@ -26,12 +26,12 @@ export default {
         margin-bottom: 5px;
         font-size: 16px;
         font-weight: bold;
-        color: #000;
+        color: ${({ theme }) => theme.text };
     `,
     InfoTextObs: styled.Text`
         margin-bottom: 5px;
         font-size: 14px;
-        color:#666E78;
+        color:${({ theme }) => theme.subTitle };
     `,
     FieldInfo: styled.TextInput`
         border-width: 1px;

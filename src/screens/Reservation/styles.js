@@ -31,9 +31,10 @@ export default {
     Title: styled.Text`
         font-size: 17px;
         margin: 0 20px;
+        color: ${({ theme }) => theme.text };
     `,
     ButtonArea: styled.TouchableOpacity`
-        background-color: #F5F6FA;
+        background-color: #8863e6;
         padding: 12px;
         border: 2px solid #8863e6;
         border-radius: 5px;
@@ -44,7 +45,7 @@ export default {
         margin-bottom: 10px;
     `,
     ButtonText: styled.Text`
-        color: #8863e6;
+        color: #F5F6FA;
         font-size: 17px;
         font-weight: bold;
     `,

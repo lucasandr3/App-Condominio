@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Modal} from 'react-native';
+import { useStateValue } from '../../contexts/StateContext';
 
-import { 
+import {
     Container,
     HeaderArea,
     AreaTitle,
@@ -14,7 +15,7 @@ import {
     Stat,
     StatCount,
     StatusArea,
-    StatusText, 
+    StatusText,
     PhotosArea,
     PhotoItem,
     PhotoImage,
@@ -27,6 +28,8 @@ const WarningItem = ({data}) => {
 
     const [showModal, setShowModal] = useState(false);
     const [modalImage, setModalImage] = useState('');
+
+    const [context, dispatch] = useStateValue();
 
     const openModal = (img) => {
         setModalImage(img);
@@ -48,19 +51,19 @@ const WarningItem = ({data}) => {
         <Line/>
             <StatusArea>
                 {data.status === 'IN_REVIEW' ?
-                    <Icon name="exchange" size={20} color="#000" />
+                    <Icon name="exchange" size={20} color={context.theme === 'light' ? '#000' : '#fff'} />
                     :
-                    <Icon name="check" size={20} color="#000" />
+                    <Icon name="check" size={20} color={context.theme === 'light' ? '#000' : '#fff'} />
                 }
                 <StatusText>
                     {data.status === 'IN_REVIEW' && 'Ocorrência em análise'}
                     {data.status === 'RESOLVED' && 'Resolvido'}
                 </StatusText>
             </StatusArea>
-        
+
         {/* <Description>{data.body}</Description> */}
 
-        
+
             {data.photos.length > 0 &&
                 <>
                 <Line/>
@@ -88,7 +91,7 @@ const WarningItem = ({data}) => {
                         <Icon name="long-arrow-left" size={30} color="#FFFFFF" />
                     </ModalCloseButton>
                 </ModalArea>
-            </Modal>    
+            </Modal>
     </Container>
   );
 }

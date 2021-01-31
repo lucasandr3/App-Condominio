@@ -51,14 +51,14 @@ export default () => {
     }
 
     const handleRegisterButton = () => {
-        navigation.navigate('Register');   
+        navigation.navigate('Register');
     }
 
     return (
         <S.Container>
-            <S.Logo 
-                source={require('../../assets/appartments.png')} 
-                resizeMode="contain" 
+            <S.Logo
+                source={require('../../assets/appartments.png')}
+                resizeMode="contain"
             />
             <S.TextLogo>Cond. Jardim Tropical</S.TextLogo>
 
@@ -73,12 +73,12 @@ export default () => {
             <SignInput
                 IconSvg="eye"
                 keyboardType="visible-password"
-                secureTextEntry={true}
                 placeholder="Digite sua Senha"
                 value={password}
                 onChangeText={t=>setPassword(t)}
+                password={true}
             />
-        
+
             <S.ButtonArea onPress={handleLoginButton}>
                 <S.ButtonText>ENTRAR</S.ButtonText>
             </S.ButtonArea>

@@ -40,7 +40,7 @@ export default {
         background-color: #FFF;
         border-width: 2px;
         border-color: #E8E9ED;
-        border-radius: 20px;
+        border-radius: 5px;
         padding: 15px;
         align-items: center;
         margin-bottom: 10px;

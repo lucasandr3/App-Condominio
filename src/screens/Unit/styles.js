@@ -12,42 +12,29 @@ export default {
     LoadingIcon: styled.ActivityIndicator`
 
     `,
-    HeaderTitle: styled.Text`
-        font-size: 16px;
+    TitleArea: styled.View`
+        flex-direction: row;
+        padding: 10px;
+    `,
+    Title: styled.Text`
+        font-size: 17px;
         color: #000;
-        text-align: center;
-        margin-top: 10px;
+        flex: 1;
     `,
-    BigArea: styled.View`
-        margin: 50px 0;
-        align-items: center;
+    AddButton: styled.TouchableOpacity`
+        width: 30px;
+        height: 30px;
     `,
-    ExitButtonArea: styled.TouchableOpacity`
-        background-color: #8863E6;
-        padding: 15px;
-        justify-content: center;
-        align-items: center;
+    ListArea: styled.View`
+        margin-bottom: 20px;
     `,
-    ExitButtonText: styled.Text`
-        color: #FFF;
-        font-size: 15px;
-        font-weight: bold;
+    ModalArea: styled.Modal``,
+    ModalBg: styled.View`
+        flex: 1;
+        background-color: rgba(0,0,0,0.5);
     `,
-    PropertyList: styled.View`
-        margin: 20px 0;
-    `,
-    ButtonArea: styled.TouchableOpacity`
+    ModalBody: styled.ScrollView`
         background-color: #FFF;
-        border-width: 2px;
-        border-color: #E8E9ED;
-        border-radius: 20px;
-        padding: 15px;
-        align-items: center;
-        margin-bottom: 10px;
-    `,
-    ButtonText: styled.Text`
-        color: #000;
-        font-size: 15px;
-        font-weight: bold;
+        margin: 20px;
     `,
 };

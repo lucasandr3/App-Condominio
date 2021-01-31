@@ -43,8 +43,12 @@ export default (props) => {
     return (
         <S.DrawerArea>
             <S.DrawerLogoArea>
+                {context.theme === 'light' ?
+                    <S.DrawerLogo source={require('../../assets/appartments.png')}/>
+                    :
+                    <S.DrawerLogo source={require('../../assets/apartmentslight.png')}/>
+                }
                 <S.LogoText>Cond. Jardim Tropical</S.LogoText>
-                {/* <DrawerLogo source={require('../assets/logo.png')} resizeMode="contain" /> */}
             </S.DrawerLogoArea>
             <S.DrawerScroller>
                 {menus.map((item, index) => (
@@ -55,30 +59,37 @@ export default (props) => {
                         <Icon
                             name={item.icon}
                             size={20}
-                            color={props.state.routes[props.state.index].name === item.screen ? '#000': '#666E78'}
+                            color={props.state.routes[props.state.index].name === item.screen ? context.theme === 'light' ? '#000': '#000': context.theme === 'dark' ? '#fff': '#666E78'}
                         />
                         <S.MenuButtonText
                             active={props.state.routes[props.state.index].name === item.screen}
+                            style={{color: props.state.routes[props.state.index].name === item.screen ? context.theme === 'light' ? '#000': '#000': context.theme === 'dark' ? '#fff': '#666E78'}}
                         >{item.title}</S.MenuButtonText>
                     </S.MenuButton>
                 ))}
                     <S.MenuButton onPress={handleLogoutButton}>
                         <S.MenuSquare></S.MenuSquare>
-                        <Icon name="sign-out" size={20} color="#666E78" />
-                        <S.MenuButtonText>Sair</S.MenuButtonText>
+                        <Icon name="sign-out" size={20} color={context.theme === 'light' ? '#666E78' : '#fff'} />
+                        <S.MenuButtonText
+                            style={{color: context.theme === 'light' ? '#666E78' : '#fff'}}
+                        >Sair</S.MenuButtonText>
                     </S.MenuButton>
                     {context.theme === 'light' &&
                         <S.MenuButton onPress={()=>dispatch({type:'setTheme', theme: 'dark'})}>
                             <S.MenuSquare></S.MenuSquare>
-                            <Icon name="moon-o" size={20} color="#666E78" />
-                            <S.MenuButtonText>Tema Escuro</S.MenuButtonText>
+                            <Icon name="moon-o" size={20} color={context.theme === 'light' ? '#666E78' : '#fff'} />
+                            <S.MenuButtonText
+                                style={{color: context.theme === 'light' ? '#666E78' : '#fff'}}
+                            >Tema Escuro</S.MenuButtonText>
                         </S.MenuButton>
                     }
                     {context.theme === 'dark' &&
                         <S.MenuButton onPress={()=>dispatch({type:'setTheme', theme: 'light'})}>
                             <S.MenuSquare></S.MenuSquare>
-                            <Icon name="sun-o" size={20} color="#666E78" />
-                            <S.MenuButtonText>Tema Claro</S.MenuButtonText>
+                            <Icon name="sun-o" size={20} color={context.theme === 'light' ? '#666E78' : '#fff'} />
+                            <S.MenuButtonText
+                                style={{color: context.theme === 'light' ? '#666E78' : '#fff'}}
+                            >Tema Claro</S.MenuButtonText>
                         </S.MenuButton>
                     }
 
@@ -94,7 +105,7 @@ export default (props) => {
                     <S.FooterUnitText>{context.user.property.name}</S.FooterUnitText>
                 </S.FooterInfo>
                 <S.FooterUnitButton onPress={() => navigation.navigate('Unit')}>
-                    <Icon name="exchange" size={24} color="#666E78" />
+                    <Icon name="cog" size={24} color={context.theme === 'light' ? '#666E78' : '#fff'} />
                 </S.FooterUnitButton>
             </S.FooterArea>
             {loading &&

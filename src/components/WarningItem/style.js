@@ -19,12 +19,12 @@ export const AreaTitle = styled.View`
 export const Name = styled.Text`
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: ${({ theme }) => theme.text };
 `;
 
 export const DataCreate = styled.Text`
     font-size: 14px;
-    color: #9C9DB9;
+    color: ${({ theme }) => theme.subTitle };
     margin-top: 8px;
 `;
 
@@ -65,7 +65,7 @@ export const StatusArea = styled.View`
 `;
 export const StatusText = styled.Text`
     font-size: 14px;
-    color: #9C9DB9;
+    color: ${({ theme }) => theme.subTitle };
     margin-left: 10px;
 `;
 

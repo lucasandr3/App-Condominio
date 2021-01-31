@@ -7,16 +7,22 @@ export default {
     `,
     Scroller: styled.ScrollView`
         flex: 1;
-        padding: 20px;
     `,
     LoadingIcon: styled.ActivityIndicator`
 
     `,
-    HeaderTitle: styled.Text`
-        font-size: 16px;
-        color: #000;
-        text-align: center;
-        margin-top: 10px;
+    Title: styled.Text`
+        font-size: 17px;
+        color: ${({ theme }) => theme.text };
+        margin: 10px 20px;
+    `,
+    ProductScroller: styled.ScrollView`
+        width: 100%;
+        padding-left: 20px;
+        margin-bottom: 20px
+    `,
+    AddButton: styled.TouchableOpacity`
+        margin-right: 15px;
     `,
     BigArea: styled.View`
         margin: 50px 0;
@@ -49,5 +55,19 @@ export default {
         color: #000;
         font-size: 15px;
         font-weight: bold;
+    `,
+    NoDocs: styled.View`
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    `,
+    NoDocText: styled.Text`
+        font-size: 15px;
+        color: #000;
+    `,
+    NoDocImage: styled.Image`
+        margin-top: 20px;
+        width: 250px;
+        height: 200px;
     `,
 };

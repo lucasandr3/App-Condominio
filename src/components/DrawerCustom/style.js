@@ -7,14 +7,16 @@ export default {
     `,
 
     DrawerLogoArea: styled.View`
-        padding: 10px 20px;
+        padding: 10px 10px;
         border-bottom-width: 1px;
         border-bottom-color: #EEE;
+        flex-direction: row;
+        align-items: center;
     `,
 
     DrawerLogo: styled.Image`
-        width: 190px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     `,
 
     DrawerScroller: styled.ScrollView`
@@ -69,7 +71,7 @@ export default {
     MenuButton: styled.TouchableOpacity`
         flex-direction: row;
         margin-bottom: 5px;
-        border-radius: 5px;
+        border-radius: 0px;
         align-items: center;
         background-color: ${props=>props.active ? '#eee': 'transparent'};
     `,

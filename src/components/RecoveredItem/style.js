@@ -1,48 +1,30 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.View`
+    padding: 20px;
     border-radius: 10px;
     background: ${({ theme }) => theme.card };
     margin-bottom: 15px;
 `;
 
-export const Cover = styled.Image`
-    height: 200px;
-    border-radius: 10px;
-`;
-
-export const ReservationArea = styled.View`
+export const HeaderArea = styled.View`
     flex-direction: row;
     align-items: center;
-    padding: 10px 0;
 `;
 
 export const AreaTitle = styled.View`
-    padding: 0 15px;
     flex:1;
 `;
 
-export const AreaHours = styled.View`
-
-`;
-
 export const Name = styled.Text`
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 5px;
     color: ${({ theme }) => theme.text };
 `;
 
 export const DataCreate = styled.Text`
-    font-size: 12px;
-    font-weight: bold;
-    color: ${({ theme }) => theme.text };
-    margin-bottom: 5px;
-    text-transform: uppercase;
-`;
-
-export const Hours = styled.Text`
     font-size: 13px;
-    letter-spacing: 1px;
     color: ${({ theme }) => theme.subTitle };
 `;
 
@@ -56,7 +38,7 @@ export const Line = styled.View`
 export const Description = styled.Text.attrs({
     numberOfLines: 5,
 })`
-    color: #666;
+    color: ${({ theme }) => theme.textDesc };
     margin-top: 5px;
     line-height: 20px;
 `;
@@ -74,4 +56,5 @@ export const Stat = styled.TouchableOpacity`
 
 export const StatCount = styled.Text`
     margin-left: 6px;
+    color: ${({ theme }) => theme.text };
 `;

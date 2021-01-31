@@ -8,7 +8,7 @@ import Api from '../../services/Api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default () => {
-  const scroll = useRef();  
+  const scroll = useRef();
   const navigation = useNavigation();
   const route = useRoute();
   const [context, dispatch] = useStateValue();
@@ -62,8 +62,8 @@ export default () => {
 
   const getTimes = async () => {
       if(selectedDate) {
-        setTimeList([]);  
-        setLoadingTimes(true);  
+        setTimeList([]);
+        setLoadingTimes(true);
         setLoadingReq(true);
         const result = await Api.getReservationTimes(route.params.data.id, selectedDate);
         setLoadingTimes(false);
@@ -85,7 +85,7 @@ export default () => {
         setLoadingReq(true);
         const result = await Api.setReservation(
             route.params.data.id,
-            selectedDate, 
+            selectedDate,
             selectedTime
         );
         setLoadingReq(false);
@@ -127,13 +127,13 @@ export default () => {
         <S.Scroller ref={scroll} contentContainerStyle={{paddingBottom: 40}}>
             <S.CoverImage source={{uri: route.params.data.cover}} resizeMode="cover" />
 
-            {loading && 
+            {loading &&
                 <S.LoadingIcon size="large" color="#000" />
             }
 
-            {!loading && 
+            {!loading &&
                 <S.CalendarArea>
-                    <CalendarPicker 
+                    <CalendarPicker
                         onDateChange={handleDateChange}
                         disabledDates={disabledDates}
                         minDate={minDate}
@@ -145,7 +145,10 @@ export default () => {
                         selectedDayColor="#8863E6"
                         selectedDayTextColor="#FFFFFF"
                         todayBackgroundColor="transparent"
-                        todayTextStyle="#000000"
+                        todayTextStyle="#ff0000"
+                        previousTitleStyle={{color: context.theme === 'light' ? '#000000' : '#ffffff'}}
+                        nextTitleStyle={{color: context.theme === 'light' ? '#000000' : '#ffffff'}}
+                        selectedDisabledDatesTextStyle={{color: context.theme === 'light' ? '#999' : '#ccc'}}
                     />
                 </S.CalendarArea>
             }
@@ -154,17 +157,17 @@ export default () => {
                 <>
                     <S.Title>Horários disponíveis em {showTextDate(selectedDate)}</S.Title>
                     <S.TimeListArea>
-                        {loadingTimes && 
-                            <S.LoadingIcon size="large" color="#000" />
+                        {loadingTimes &&
+                            <S.LoadingIcon size="large" color={context.theme === 'light' ? '#000000' : '#ffffff'} />
                         }
                         {timeList.map((item, index) => (
-                            <S.TimeItem 
-                                key={index} 
+                            <S.TimeItem
+                                key={index}
                                 onPress={()=>setSelectedTime(item.id)}
-                                active={selectedTime === item.id} 
+                                active={selectedTime === item.id}
                             >
                                 <S.TimeItemText
-                                    active={selectedTime === item.id} 
+                                    active={selectedTime === item.id}
                                 >{item.title}</S.TimeItemText>
                             </S.TimeItem>
                         ))}

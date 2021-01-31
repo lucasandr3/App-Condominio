@@ -20,7 +20,7 @@ export default {
     Title: styled.Text`
         font-size: 17px;
         font-weight: bold;
-        color: #000;
+        color: ${({ theme }) => theme.text };
         margin: 10px 20px;
     `,
     TimeListArea: styled.View`

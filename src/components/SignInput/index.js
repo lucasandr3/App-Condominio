@@ -3,7 +3,7 @@ import S from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default ({IconSvg, placeholder, keyboardType, value, onChangeText, password}) => {
-    return ( 
+    return (
         <S.InputArea>
             <Icon name={IconSvg} size={20} color="#666e78" />
             <S.Input

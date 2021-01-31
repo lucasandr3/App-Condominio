@@ -9,6 +9,9 @@ export default {
         flex: 1;
         padding: 20px;
     `,
+     PhotoArea: styled.View`
+     /* margin-bottom: 30px; */
+    `,
     Title: styled.Text`
         font-size: 17px;
         color: ${({ theme }) => theme.text };
@@ -24,35 +27,11 @@ export default {
         padding: 10px;
         /* margin-bottom: 15px; */
     `,
-    PhotoArea: styled.View`
-        margin-bottom: 30px;
-    `,
-    PhotoScroll: styled.ScrollView`
-        flex: 1;
-    `,
-    PhotoAddButton: styled.TouchableOpacity`
-        width: 65px;
-        height: 65px;
-        justify-content: center;
-        align-items: center;
-        border-width: 1px;
-        border-color: #CCC;
-        border-radius: 5px;
-    `,
-    PhotoItem: styled.View`
-        width: 65px;
-        border-width: 1px;
-        border-color: #CCC;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        margin-left: 5px;
-        align-items: center;
-    `,
+
     Photo: styled.Image`
-        width: 63px;
-        height: 63px;
-        margin-bottom: 5px;
+        height: 200px;
         border-radius: 5px;
+        margin-bottom: 10px;
     `,
     PhotoRemoveButton: styled.TouchableOpacity``,
     ButtonArea: styled.TouchableOpacity`
@@ -73,16 +52,14 @@ export default {
         color: ${({ theme }) => theme.text };
     `,
     LoadingArea: styled.View`
-        /* position: absolute; */
+        position: absolute;
         left: 0;
         top: 0;
         right: 0;
         bottom: 0;
+        background-color: rgba(0,0,0,0.5);
         justify-content: center;
         align-items: center;
-        flex-direction: row;
     `,
-    LoadingIcon: styled.ActivityIndicator`
-        margin-right: 10px;
-    `,
+    LoadingIcon: styled.ActivityIndicator``,
 };

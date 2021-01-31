@@ -20,7 +20,7 @@ export default () => {
         navigation.setOptions({
             headerRight: () => (
                 <S.AddButton onPress={()=>navigation.navigate('WarningAdd')}>
-                    <Icon name="plus" size={20} color="#000"/>
+                    <Icon name="plus" size={20} color={context.theme === 'light' ? '#000' : '#fff'}/>
                     {/* <S.AddText>Nova ocorrência</S.AddText> */}
                 </S.AddButton>
             )

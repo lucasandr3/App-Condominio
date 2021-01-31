@@ -85,7 +85,7 @@ export const dark = {
   text: "#fff",
   textDesc: "#FFFFFF",
   link: "#3498db",
-  card: "#292929",
+  card: "#383838",
   subTitle: "#CCC",
   transparent: 'transparent',
 

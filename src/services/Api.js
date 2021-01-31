@@ -16,7 +16,7 @@ const request = async (method, endpoint, params, token = null) => {
             break;
         case 'post':
         case 'put':
-        case 'delete':             
+        case 'delete':
                 body = JSON.stringify(params);
             break;
     }
@@ -46,12 +46,12 @@ export default {
 
     register: async (name, email, cpf, password, password_confirm) => {
         let json = await request('post', '/auth/register', {name, email, cpf, password, password_confirm});
-        return json; 
+        return json;
     },
-    
+
     login: async (cpf, password) => {
         let json = await request('post', '/auth/login', {cpf, password});
-        return json; 
+        return json;
     },
 
     logout: async () => {
@@ -126,7 +126,7 @@ export default {
         });
         let json = await req.json();
         return json;
-    }, 
+    },
 
     addWarning: async (title, list) => {
         let token = await AsyncStorage.getItem('token');
@@ -183,6 +183,68 @@ export default {
     removeReservation: async (id) => {
         let token = await AsyncStorage.getItem('token');
         let json = await request('delete', `/myreservation/${id}`, {}, token);
+        return json;
+    },
+
+    getFoundAndLost: async () => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('get', '/foundandlost', {}, token);
+        return json;
+    },
+
+    setRecovered: async (id) => {
+        let token = await AsyncStorage.getItem('token');
+        let json = await request('put', `/foundandlost/${id}`, {
+            status: 'recovered'
+        }, token);
+        return json;
+    },
+
+    addLostItem: async (photo, description, where) => {
+        let token = await AsyncStorage.getItem('token');
+        let formData = new FormData();
+        formData.append('description', description);
+        formData.append('where', where);
+        formData.append('photo', {
+            uri: photo.uri,
+            type: photo.type,
+            name: photo.fileName
+        });
+        let req = await fetch(`${baseUrl}/foundandlost`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        });
+        let json = await req.json();
+        return json;
+    },
+
+    getUnitInfo: async () => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+        let json = await request('get', `/unit/${property.id}`, {}, token);
+        return json;
+    },
+
+    RemoveUnitItem: async (type, id) => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+        let json = await request('post', `/unit/${property.id}/remove${type}`, {
+            id
+        }, token);
+        return json;
+    },
+
+    AddUnitItem: async (type, body) => {
+        let token = await AsyncStorage.getItem('token');
+        let property = await AsyncStorage.getItem('property');
+        property = JSON.parse(property);
+        let json = await request('post', `/unit/${property.id}/add${type}`, body, token);
         return json;
     }
 };
